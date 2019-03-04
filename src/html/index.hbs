@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='en' data-version='{{timestamp}}'>
+
+<head>
+
+	{{> base/meta}}
+
+	<!-- smoosh -->
+	<link rel='stylesheet' href='bundle.css' />
+	<!-- endsmoosh -->
+
+	{{> base/font}}
+
+	<!-- smoosh -->
+	<script src='critical.js'></script>
+	<!-- endsmoosh -->
+
+	{{> base/analytics }}
+
+</head>
+
+<body>
+
+	{{> base/header 'sticky'}}
+
+	<main id='content'>
+
+		{{> story/intro }}
+		{{!-- delete guide and put your html here --}}
+		{{> base/guide }}
+
+	</main>
+
+
+	<script src='{{basepath}}assets/scripts/d3.v5.8.0.min.js'></script>
+	<script src='bundle.js?version={{timestamp}}' async></script>
+	<script src='https://pudding.cool/assets/scripts/pudding-footer.v2.js' async></script>
+</body>
+
+</html>
