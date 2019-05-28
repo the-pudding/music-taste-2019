@@ -1,10 +1,258 @@
-<div class='intro'>
-	<h1 class='intro__hed'>{{meta.title}}</h1>
-	<p class='intro__dek'>{{meta.description}}</p>
-	<p class='intro__byline'>By
-		<a href='{{meta.author.url}}' target='_blank'>
-			<strong>{{meta.author.name}}</strong>
+
+
+<div class="header-container">
+	<div class="logo-opener">
+		<a href="/" class="logo-opener-a">
+			<svg version="1.1" class="logo-svg" x="0" y="0" viewBox="0 0 165 153.8" enable-background="new 0 0 165 153.8" xml:space="preserve">
+				<path d="M16.6 75.3c0-22.6 0-45.3 0-67.9 0-4.2-5.5-6.2-10.7-4 -0.6 0.3-1 0.9-1.6 1.1 -1.2 0.5-2.6 1.1-3.7 0 -0.9-0.8-0.5-1.9-0.3-2.8C0.5-0.1 2-0.1 3.3 0c8.1 0.8 16.3 0.1 24.5 0.2 29.5 0.2 58.9 0.3 88.4 0.6 16.1 0.2 30.1 5.2 40.6 18.5 11.3 14.4 10 37.7 1.6 48.9 -9.2 12.2-21.5 18.6-36.7 19.1 -12 0.4-24 0.3-36 0.2 -4.5-0.1-5.9 1.4-5.7 6 0.4 16.3 0.5 32.7 0.3 49 0 4.7 1.7 6.3 6.1 6.1 2.8-0.2 5.7-0.2 8.5-0.1 1.6 0.1 4-0.1 3.9 2.1 -0.1 2.1-2.2 3.4-4.5 3 -21.3-3.6-42.8-1.2-64.2-2 -8.1-0.3-16.3 0-24.4 1.1 -2 0.3-4.8 0.9-4.9-2.5 0-3.4 2.7-3.2 5.1-3 11.3 0.9 11.3 0.9 11.3-10.5 0-20.5 0-41 0-61.5C16.9 75.3 16.8 75.3 16.6 75.3zM66.1 23.4L66 23.3 66.1 23.4c0.9 1.7 1.6 3.8 3.8 4.5 0.1 0 0.8-0.7 0.8-1C70.4 24.1 67.9 24.2 66.1 23.4zM43 8.6C43 8.5 43 8.5 43 8.6c0.3 0.3 0.5 0.8 0.8 1.1 1.1 1.3 1.3 3.5 3.7 3.2 0.3 0 0.7-1.1 0.6-1.6 -0.3-2.4-2.5-2.1-4.1-2.5C43.6 8.6 43.3 8.6 43 8.6zM123.2 72.3c-0.3 0-0.5-0.9-0.8 0C122.6 72.2 122.9 72.2 123.2 72.3c-0.7 3.2 2.1 4.4 3.8 6.2 0.7 0.7 1.8 2 2.8 0.6 0.8-1.1 0.6-2.6-0.7-3.4C127.3 74.3 125.5 72.9 123.2 72.3zM44.2 63.3c-0.3 0-0.4-0.8-0.8-0.1C43.7 63.2 44 63.2 44.2 63.3c-0.4 3.2 2.5 4.6 3.9 6.9 0.4 0.7 1.2 1.3 2.1 0.8 1.1-0.5 0.9-1.6 0.7-2.6C50 65.1 46.7 64.7 44.2 63.3zM38.1 28.3l-0.1 0L38.1 28.3c0.2 4.3 3.3 7.2 5 10.7 0.4 0.9 1 2.6 2.4 1.7 1-0.6 0.8-2.2 0.1-3.2C43.2 34.4 40.6 31.4 38.1 28.3zM42.1 80.3l-0.1 0L42.1 80.3c0.6 3.2 3.1 5.1 4.7 7.5 0.7 1 1.4 2.4 3 2.1 0.5-0.1 0.9-0.9 1.1-1.5 0.4-1.6-0.2-2.9-1.6-3.7C46.8 83.2 44.5 81.7 42.1 80.3zM123.2 58.2l-0.2 0.1L123.2 58.2c0 3.7 3 5.8 4.7 8.5 0.7 1.1 1.7 2.6 3.1 1.4 1.3-1.1 1-3-0.1-4C128.5 61.9 126.6 59 123.2 58.2zM130.1 55.4l-0.1-0.2L130.1 55.4c1.5 2.5 3.1 5 5.6 6.7 1 0.6 1.8 2.7 3.2 1.1 1.2-1.3 0.4-2.9-0.9-3.9C135.7 57.4 133 56.1 130.1 55.4zM38.1 65.3l-0.2 0L38.1 65.3c0.6 5 3.4 8.9 6.5 12.5 0.6 0.8 1.5 1.3 2.6 0.6 0.7-0.4 1.1-1.1 0.7-1.6C44.8 72.7 43 67.6 38.1 65.3zM79.9 43.7c0 0 0.1 0 0.1 0 0 12.1 0.1 24.3-0.1 36.4 0 3.6 0.9 5.1 4.8 4.9 4.6-0.3 9.3-0.1 14 0 3.2 0.1 4.6-1.1 4.5-4.3 -0.1-4.5-0.1-9-0.1-13.5 0-19.9 0-39.8 0.1-59.8 0-2.9-1-4.2-4.1-4.2 -5 0.1-10 0-15-0.4 -3.4-0.2-4.4 1.3-4.4 4.3C79.9 19.4 79.9 31.5 79.9 43.7zM26.4 8.1c-0.2 2.6-0.3 4.2-0.3 5.8 0 38.9 0.1 77.9 0.1 116.8 0 3.5 0.1 7 0.1 10.5 0 1.3 0.5 2.2 1.9 2.4 1.9 0.2 3.7 0.2 5.3-0.9 1.4-0.9 0.2-2.1-0.2-3.1 -1.3-2.9-2.7-5.7-3.9-8.6 -0.6-1.5-0.7-3.5 1.2-3.6 6.6-0.3 3.8-3.2 2.1-6.3 -1.4-2.5-2.3-5.2-3.4-7.8 -1-2.4-1.2-4.2 2.3-4.4 3.9-0.3 3.8-2.5 2-5.1 -1.9-2.8-3.1-5.8-4.1-8.9 -0.5-1.6-0.9-3.3 1-3.7 5.2-0.9 3.3-3.4 1.8-6.2 -1.3-2.5-2.2-5.2-3.6-7.7 -1.1-2-0.3-3.7 1.4-4 4.9-1 3.4-3.7 2.1-6.5 -1-2.1-1.9-4.2-3.1-6.2 -1.8-3-1.3-4.7 2.4-5 4-0.3 3.6-2.3 2-5 -1.7-2.8-3.3-5.8-4.8-8.7 -1-1.9-1-3.8 1.6-4.2 5.7-0.8 4.2-3.5 2-6.6 -1-1.5-1.7-3.2-2.7-4.8 -2-3.1-2.2-5.2 2.4-5.6 1.5-0.1 4-0.7 2-3C31.4 15 30.2 11.2 26.4 8.1zM112.4 9.5c-0.5 1.2-0.9 1.6-0.9 2.1 -1.5 21.4-1 42.8-0.7 64.2 0 1.6 0.2 3.3 2.1 3.4 1.9 0.2 4.3 0.4 5.6-1.4 1-1.4-0.7-2.7-1.5-3.8 -2.3-3-4.3-5.7 1.6-6.8 2.9-0.5 2.3-2.2 1-4 -1.7-2.4-3.5-4.8-4.9-7.4 -0.8-1.3-1.6-3.4 1.2-3.7 5.6-0.6 4.6-3.3 2.1-6.5 -1.1-1.4-2.2-2.9-3.1-4.4 -1.7-2.6-2.2-4.9 2-5.6 3.4-0.6 3.6-2.1 1.4-4.7 -0.7-0.8-1.2-1.9-2-2.7 -3.9-4.4-3.8-5.2 1.8-7.1 3-1 4-2.2 1.4-4.7C117.1 14.3 114.9 12.1 112.4 9.5zM35.4 115.5c2 4.8 3.5 8.6 5.3 12.3 0.5 1.1 2 1.8 3 2.6 0.6-1.5 2.2-2.6 1.6-4.5 -0.3-0.9-0.8-1.8-1.5-2.5C41.5 120.8 39.3 118.1 35.4 115.5zM37.8 46.4c2.2 5.6 4.7 11 9.4 15.2C47.9 54.3 41.5 51.1 37.8 46.4zM46 21.4c-1.4-5.6-5.5-9.5-9.1-13.7C40.1 12.2 40.5 18.5 46 21.4zM122 27.9c1 3 2.4 5 4.4 6.8 1.2 1 2.3 2.3 3.6 0.6 1.1-1.4 0.4-2.9-0.9-3.9C127.2 29.8 125.1 28.5 122 27.9zM36.1 83.1c1.8 3.3 3.5 6.7 5.4 9.9 0.6 1.1 1.5 2.6 3.1 1.4 1.3-1 0.7-2.4-0.1-3.6C42.5 87.6 39.8 84.8 36.1 83.1zM122.2 41.8c-0.3 0.3-0.7 0.6-1 0.9 1.8 2.3 3.4 4.7 5.3 6.8 0.9 1 1.6 3.6 3.5 1.7 1.5-1.5 0.5-3.6-1-4.7C126.9 44.6 124.5 43.3 122.2 41.8zM37.6 98.8c-0.3 0.3-0.7 0.6-1 0.8 1.6 3.1 3.1 6.2 4.8 9.2 0.6 1 1.2 2.9 2.9 1.8 1.3-0.8 0.9-2.3 0.3-3.6C42.9 103.6 39.5 101.9 37.6 98.8zM43.8 115.6c1.8 2.5 3.5 5.1 5.3 7.6 0.8 1 2 2.1 3.3 0.8 1.2-1.1 0.5-2.4-0.4-3.5C49.9 118.1 46.9 116.9 43.8 115.6zM36.4 135c2.3 3.9 3.9 6.7 5.7 9.4 0.6 0.9 1.3 2.3 2.7 1.2 1.3-1 1.2-2.3 0-3.4C42.5 140 40.6 137.3 36.4 135zM128.8 23c1.1 2.8 3.3 4.2 5.2 6 1 0.9 2.2 2.1 3.2 0.6 0.9-1.3 0.4-2.9-1.2-3.7C133.8 24.7 131.7 23.1 128.8 23zM127.7 39.9c2.5 2.6 4.4 4.7 6.4 6.7 0.8 0.8 1.8 1.9 2.9 0.8 1.3-1.3 0.7-3-0.7-3.8C133.8 42.2 131.7 40 127.7 39.9zM50.9 142.1c1-0.4 1.9-0.8 1.8-2.1 -0.1-3.9-3.8-3.9-6.1-5.4 -0.7-0.5-1.7 0.5-1.3 1.4C46.3 138.7 48.4 140.5 50.9 142.1zM44.1 27c1.1 2.7 2.1 5.6 5.1 6.8 1 0.4 0.9-0.9 0.9-1.7C50.2 28.1 46.6 28.3 44.1 27zM44.3 97.6c-0.2 0.2-0.5 0.5-0.7 0.7 1.6 2.1 3.1 4.3 4.7 6.4 0.8 1 1.9 2.3 3.2 0.8 1-1.1 0.5-2.6-0.7-3.5C48.7 100.5 46.5 99.1 44.3 97.6zM118.9 9c2.1 2.5 3.4 4.2 4.8 5.7 0.8 0.9 1.9 1.7 2.9 0.4 0.7-1 0.5-2.3-0.6-3.1C124.3 10.7 122.5 9.6 118.9 9zM62.6 38.7c1.2 3.4 3.2 5.2 6.1 6.1 0.1 0 0.8-0.7 0.7-1.1C68.8 40.5 66.3 39.5 62.6 38.7zM56.2 134.7c1.8 2.4 3 4.1 4.4 5.7 0.7 0.8 1.6 1.2 2.6 0.4 1-0.8 0.5-1.8-0.1-2.6C61.5 136.5 59.4 135.6 56.2 134.7zM54 97.7c0.6 0.9 0.8 1.5 1.3 1.9 1.1 1.1 1.7 2.9 3.6 3 0.7 0 1-0.7 0.9-1.5 -0.2-2-1.8-2.6-3.3-3.2C55.9 97.7 55.2 96.9 54 97.7zM65.9 95.9c1.7 1.5 1.6 4.4 4.2 5 0.7 0.1 1.3-0.6 1.1-1.3C70.7 97 68.1 96.7 65.9 95.9zM43.5 44.8c1 3 2.3 4.8 4 6.2 0.6 0.5 1.3 1.1 2.1 0.4 0.7-0.6 0.5-1.6 0.1-2.3C48.6 47.1 46.4 46.2 43.5 44.8zM54 22.6c1 3.3 2.2 5 4.4 5.7 0.2 0.1 1.2-1.1 1.1-1.4C58.8 24.7 56.8 23.9 54 22.6zM65.5 76.6c1 2 1.5 4.4 4.1 5 0.3 0.1 1-0.6 1-0.8C70.2 78 67.2 78.1 65.5 76.6zM54.8 43.9c1.1 1.9 1.9 4.2 4.4 4.8 0.3 0.1 1.2-0.9 1.2-1.2 -0.6-2.7-3.3-2.8-5.1-3.9C55.2 43.6 55 43.8 54.8 43.9zM131.7 72.4c1.6 1.6 2.1 4.4 5 4.6 0.2 0 0.7-0.9 0.6-1.1C136.4 73.6 134.6 72.3 131.7 72.4zM56.8 117.9c0.6 2.3 1.6 4.4 4.1 4.9 0.2 0 0.8-0.7 0.8-1C61.7 118.6 58.9 118.8 56.8 117.9zM65.8 60.5c1.2 1.6 1.6 3.9 3.9 4.4 0.2 0 0.8-0.7 0.8-1.1C70.2 61.2 68.1 60.8 65.8 60.5zM67.9 134.3c0.8 1.6 1.4 3.4 3.8 3.9C71.9 135.4 70.1 134.7 67.9 134.3zM54.6 79.5c0.7 1.9 1.4 3.7 3.4 4.3 0.1 0 0.8-0.7 0.7-1C58.7 80.3 56.7 79.9 54.6 79.5zM56.3 63c1.2 1.5 1.7 3.7 4 3.8 0.2 0 0.7-0.8 0.6-1.2C60.2 63.5 58.5 62.8 56.3 63zM131.6 10.7c0.4 2.4 1.6 3.6 3.4 4.1 0.9 0.3 1.2-0.7 1-1.3C135.2 11.8 133.6 11.3 131.6 10.7z"/>
+			</svg>
 		</a>
+		<a href="/" class="header-opener-two tk-futura-pt">The Pudding
+		</a>
+	</div>
+	<div class="title-container tk-futura-pt">
+		<p class="title-main">The Billboard <span class="red-text">Top 100</span>
+		</p>
+		<p class="title-sub">1958 - 2016, 22,000 Songs
+		</p>
+	</div>
+	<div class="byline-title tk-futura-pt">
+		<div class="byline-container">
+			<p class="byline-header">DESIGN LOVE BY
+			</p>
+			<a href="http://useallfive.com"><p class="byline-text">Use All<br>Five
+			</p></a>
+		</div>
+		<div class="byline-container">
+			<p class="byline-header">0'S + 1'S
+			</p>
+			<a href="http://twitter.com/matthew_daniels"><p class="byline-text">Matt<br>Daniels
+			</p></a>
+		</div>
+	</div>
+</div>
+<div class="top-frame">
+	<div class="top-line">
+		<p>The Top 5</p>
+		<p>Billboard Hot 100</p>
+	</div>
+	<p class="subhead">PLAYING <span id="top-title-sub">MMM BOP</span>, #1 ON <span id="top-date-sub">August 21, 1966</span></p>
+
+</div>
+<div class="fade">
+
+</div>
+<div class="content" style="">
+	<div class="bio-container tk-futura-pt">
+		<div class="bio-text-container" style="">
+			<p class="bio-info">
+			</p>
+		</div>
+	</div>
+	<div class="chart-fake">
+	</div>
+	<div class="bio-fake">
+	</div>
+
+	<div class="map load-elements" style="top:auto; opacity:1;">
+		<div class="bottom-frame">
+			<div class="streak">
+				<p class="big">2</p>
+				<div class="right">
+					<p>Weeks</p>
+					<!-- <p>Streak</p> -->
+					<p>at #1</p>
+				</div>
+			</div>
+			<div class="ranking">
+				<p><span>#</span>1</p>
+				<p>2</p>
+				<p>3</p>
+				<p>4</p>
+				<p>5</p>
+			</div>
+			<div class="slider-wrapper">
+				<div id="slider">
+				</div>
+				<div class="play-pause">
+					<svg class="play-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+					<svg class="pause-button" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+				</div>
+			</div>
+
+		</div>
+		<div class="right-col tk-futura-pt">
+			<div class="pause-play-container">
+				<p class="pause-button-new pause-play-text" style="color:white; pointer-events:all;">Pause</p>
+				<p class="play-pause-divide">/
+				</p>
+				<p class="play-button-new pause-play-text">Play</p>
+			</div>
+			<div class="search-bar">
+				<input class="search-input tk-futura-pt" type="text" placeholder="Find an artist...">
+				<div class="search-icon">
+					<svg class="search-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve" style="&#10;    width: 100%;&#10;    height: 100%;&#10;"><g><path fill="" d="M84.755,64.56c12.914-12.914,12.914-33.927,0-46.841c-12.913-12.915-33.927-12.915-46.842,0     c-11.272,11.273-12.706,28.717-4.297,41.559l-22.72,22.72c-2.625,2.626-2.611,6.909,0.03,9.551s6.926,2.654,9.55,0.03     l22.72-22.72C56.038,77.266,73.481,75.834,84.755,64.56z M44.955,57.52c-9.032-9.032-9.032-23.727,0-32.76     c9.031-9.031,23.727-9.031,32.758,0c9.031,9.033,9.031,23.728,0,32.76C68.682,66.55,53.986,66.55,44.955,57.52z"/></g></svg>
+				</div>
+			</div>
+			<div class="search-results-new">
+			</div>
+			<div class="cumulative-stats">
+				<p class="cumulative-title">WEEKS AT #1 (TOP 10)
+				</p>
+				<div class="cumulative-container">
+				</div>
+			</div>
+		</div>
+
+		<div class="chart-border chart-border-top"></div>
+		<div class="chart-border chart-border-bottom" style=""></div>
+		<div class="chart-title-wrapper" style="">
+			<div class="year-drop-down">
+				<p class="year-drop-down-text tk-futura-pt">2005</p>
+				<select class="fancy-select">
+				</select>
+			</div>
+			<div class="tk-futura-pt number-one-wrapper">
+				<p class="number-one-artist">THE 2 LIVE CREW</p>
+				<p class="number-one-date-wrapper"><span style="padding-left: 30px;">#1 on </span><span style="padding-right: 30px;" class="number-one" style="">JAN-01 93</span></p>
+			</div>
+		</div>
+		<div class="chart" style="">
+			<div class="guitar-frame">
+			</div>
+			<p class="click-to-play tk-futura-pt">Click To Play
+			</p>
+			<div class="track-legend">
+			</div>
+			<div class="paused-play-button">
+				<div class="triangle-shape">
+				</div>
+			</div>
+		</div>
+		<div class="change-year-wide tk-futura-pt">
+			<p class="change-year-wide-title">Change Year
+
+			</p>
+			<div class="change-year-wide-data">
+			</div>
+		</div>
+		<div class="pause-section tk-futura-pt">
+			<p class="pause-text">pause
+			</p>
+		</div>
+		<div class="change-year tk-futura-pt">
+			<div class="change-year-select-wrapper">
+				<div class="change-year-text">
+					<p>Change Year</p>
+					<div class="change-year-arrow">
+					</div>
+				</div>
+				<select class="fancy-select" style="77px;">
+				</select>
+			</div>
+			<div class="pause-button">
+				<svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="8 20 75 75" enable-background="new 0 0 100 100" xml:space="preserve" style="width: 111px;height: 111px;position: absolute;top: 2px;"><rect x="39.1" y="33" width="6.4" height="34.6"></rect><rect x="54.8" y="33" width="6.4" height="34.6"></rect></svg>
+				<svg class="play-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="8 20 75 75" enable-background="new 0 0 100 100" xml:space="preserve" style="width: 116px;height: 111px;position: absolute;top: 2px;"><polygon xmlns="http://www.w3.org/2000/svg" points="39.3,33 39.3,67.6 61.6,50.3 "/></svg>
+			</div>
+			<div class="mute">
+				<svg class="vol-icon hidden" style="width: 148px; height: 109px; top: 4px; position: absolute;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><g><path d="M43.479,23.432c-0.624-0.327-1.376-0.281-1.957,0.117L24.087,35.56H6.896C5.848,35.56,5,36.409,5,37.455v25.708   c0,1.048,0.848,1.896,1.896,1.896h17.216L41.56,76.477c0.314,0.205,0.675,0.31,1.038,0.31c0.31,0,0.619-0.075,0.901-0.228   c0.613-0.332,0.994-0.973,0.994-1.668V25.109C44.493,24.405,44.103,23.759,43.479,23.432z"/><path d="M58.6,35.73c-1.231-1.232-3.232-1.232-4.467,0c-1.232,1.233-1.232,3.234,0,4.467c5.406,5.405,5.406,14.2,0,19.606   c-1.232,1.232-1.232,3.232,0,4.467c0.617,0.616,1.426,0.926,2.233,0.926c0.807,0,1.616-0.309,2.233-0.926   C66.469,56.4,66.469,43.599,58.6,35.73z"/><path d="M68.661,24.881c-1.233-1.233-3.233-1.233-4.468,0c-1.232,1.232-1.232,3.232,0,4.466c11.389,11.388,11.389,29.918,0,41.305   c-1.232,1.233-1.232,3.233,0,4.467c0.617,0.617,1.426,0.926,2.233,0.926s1.617-0.309,2.233-0.926   C75.371,68.41,79.066,59.49,79.066,50C79.066,40.511,75.371,31.589,68.661,24.881z"/></g></svg>
+				<svg class="mute-icon" style="width: 161px; height: 109px; top: 4px; position: absolute;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M57.757,21.273c-1.366-1.083-3.354-0.854-4.437,0.512l-8.828,11.127v-7.84c0-0.704-0.39-1.35-1.014-1.678  c-0.623-0.327-1.376-0.281-1.956,0.118L24.087,35.523H6.895C5.847,35.523,5,36.372,5,37.418v25.708c0,1.046,0.847,1.896,1.895,1.896  h12.126l-8.866,11.177c-1.084,1.364-0.855,3.353,0.512,4.437c0.581,0.461,1.274,0.686,1.961,0.686c0.931,0,1.853-0.409,2.476-1.195  l10.964-13.82L41.56,76.439c0.314,0.205,0.675,0.31,1.038,0.31c0.309,0,0.619-0.075,0.9-0.228c0.612-0.332,0.994-0.973,0.994-1.668  V43.077l13.775-17.366C59.354,24.345,59.124,22.358,57.757,21.273z"/></svg>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="screen">
+	<div class="images-screen">
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/e7f36f618a1e577741be6d1f108d27dd693f5b81)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/01405d36c7091a57b873ee5a91034ba7fc8eab8c)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/c082d287a4042623bfa5080e116dca078bfd22c6)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/ab0fd5c69f4f6d14f1682ee07130b38f93200de9)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/68f9c89ace8c441168331e21478252c2257f1ea8)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/e8f489fb953e2d1cb00d1c18c903d6149cb1196d)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/9fea3139e3d92557b6a065a201bd2a72c36ad20d)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/0f01177fd08fd3460292424ff673c91d31202daa)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/98006c221cbcc29bc9746757e69fa896fd0a5640)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/7c0e9b62166f8bbe21bd1fa17cc9cd274f453e93)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/13b5b388d2507f38b8ba5dd904f30900e80c242f)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/e82b41543d67c318d6c64c0010ef08aba26e11f7)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/374692efa634a14b838e04a2c11ca4dae4468d4f)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/a38c54734b55fd4094e7370cc3ad511fda1c7892)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/5bafab32f2eb71e881de73ec4b088e106feb9e3f)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/3e64d0df8c0f523a1aca92aa2ea5f603d9e003e9)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/f55a411afec73d59d52d0d5a8586fba2fc9f9ce1)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/cbbdfb209cc38b2999b1882f42ee642555316313)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/cb3c478244b60448fd73c7f7e1c45e1276399c65)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/826db6d87e55e431df5cdf937a54fd224a65ff8f)">
+		</div>
+		<div class="img-screen" style="background-image:url(https://i.scdn.co/image/130125ae017e93d1b7ef701aa181f35b46a86312)">
+		</div>
+	</div>
+	<div class="logo-opener">
+		<a href="/" class="logo-opener-a">
+			<svg version="1.1" class="logo-svg" x="0" y="0" viewBox="0 0 165 153.8" enable-background="new 0 0 165 153.8" xml:space="preserve">
+				<path d="M16.6 75.3c0-22.6 0-45.3 0-67.9 0-4.2-5.5-6.2-10.7-4 -0.6 0.3-1 0.9-1.6 1.1 -1.2 0.5-2.6 1.1-3.7 0 -0.9-0.8-0.5-1.9-0.3-2.8C0.5-0.1 2-0.1 3.3 0c8.1 0.8 16.3 0.1 24.5 0.2 29.5 0.2 58.9 0.3 88.4 0.6 16.1 0.2 30.1 5.2 40.6 18.5 11.3 14.4 10 37.7 1.6 48.9 -9.2 12.2-21.5 18.6-36.7 19.1 -12 0.4-24 0.3-36 0.2 -4.5-0.1-5.9 1.4-5.7 6 0.4 16.3 0.5 32.7 0.3 49 0 4.7 1.7 6.3 6.1 6.1 2.8-0.2 5.7-0.2 8.5-0.1 1.6 0.1 4-0.1 3.9 2.1 -0.1 2.1-2.2 3.4-4.5 3 -21.3-3.6-42.8-1.2-64.2-2 -8.1-0.3-16.3 0-24.4 1.1 -2 0.3-4.8 0.9-4.9-2.5 0-3.4 2.7-3.2 5.1-3 11.3 0.9 11.3 0.9 11.3-10.5 0-20.5 0-41 0-61.5C16.9 75.3 16.8 75.3 16.6 75.3zM66.1 23.4L66 23.3 66.1 23.4c0.9 1.7 1.6 3.8 3.8 4.5 0.1 0 0.8-0.7 0.8-1C70.4 24.1 67.9 24.2 66.1 23.4zM43 8.6C43 8.5 43 8.5 43 8.6c0.3 0.3 0.5 0.8 0.8 1.1 1.1 1.3 1.3 3.5 3.7 3.2 0.3 0 0.7-1.1 0.6-1.6 -0.3-2.4-2.5-2.1-4.1-2.5C43.6 8.6 43.3 8.6 43 8.6zM123.2 72.3c-0.3 0-0.5-0.9-0.8 0C122.6 72.2 122.9 72.2 123.2 72.3c-0.7 3.2 2.1 4.4 3.8 6.2 0.7 0.7 1.8 2 2.8 0.6 0.8-1.1 0.6-2.6-0.7-3.4C127.3 74.3 125.5 72.9 123.2 72.3zM44.2 63.3c-0.3 0-0.4-0.8-0.8-0.1C43.7 63.2 44 63.2 44.2 63.3c-0.4 3.2 2.5 4.6 3.9 6.9 0.4 0.7 1.2 1.3 2.1 0.8 1.1-0.5 0.9-1.6 0.7-2.6C50 65.1 46.7 64.7 44.2 63.3zM38.1 28.3l-0.1 0L38.1 28.3c0.2 4.3 3.3 7.2 5 10.7 0.4 0.9 1 2.6 2.4 1.7 1-0.6 0.8-2.2 0.1-3.2C43.2 34.4 40.6 31.4 38.1 28.3zM42.1 80.3l-0.1 0L42.1 80.3c0.6 3.2 3.1 5.1 4.7 7.5 0.7 1 1.4 2.4 3 2.1 0.5-0.1 0.9-0.9 1.1-1.5 0.4-1.6-0.2-2.9-1.6-3.7C46.8 83.2 44.5 81.7 42.1 80.3zM123.2 58.2l-0.2 0.1L123.2 58.2c0 3.7 3 5.8 4.7 8.5 0.7 1.1 1.7 2.6 3.1 1.4 1.3-1.1 1-3-0.1-4C128.5 61.9 126.6 59 123.2 58.2zM130.1 55.4l-0.1-0.2L130.1 55.4c1.5 2.5 3.1 5 5.6 6.7 1 0.6 1.8 2.7 3.2 1.1 1.2-1.3 0.4-2.9-0.9-3.9C135.7 57.4 133 56.1 130.1 55.4zM38.1 65.3l-0.2 0L38.1 65.3c0.6 5 3.4 8.9 6.5 12.5 0.6 0.8 1.5 1.3 2.6 0.6 0.7-0.4 1.1-1.1 0.7-1.6C44.8 72.7 43 67.6 38.1 65.3zM79.9 43.7c0 0 0.1 0 0.1 0 0 12.1 0.1 24.3-0.1 36.4 0 3.6 0.9 5.1 4.8 4.9 4.6-0.3 9.3-0.1 14 0 3.2 0.1 4.6-1.1 4.5-4.3 -0.1-4.5-0.1-9-0.1-13.5 0-19.9 0-39.8 0.1-59.8 0-2.9-1-4.2-4.1-4.2 -5 0.1-10 0-15-0.4 -3.4-0.2-4.4 1.3-4.4 4.3C79.9 19.4 79.9 31.5 79.9 43.7zM26.4 8.1c-0.2 2.6-0.3 4.2-0.3 5.8 0 38.9 0.1 77.9 0.1 116.8 0 3.5 0.1 7 0.1 10.5 0 1.3 0.5 2.2 1.9 2.4 1.9 0.2 3.7 0.2 5.3-0.9 1.4-0.9 0.2-2.1-0.2-3.1 -1.3-2.9-2.7-5.7-3.9-8.6 -0.6-1.5-0.7-3.5 1.2-3.6 6.6-0.3 3.8-3.2 2.1-6.3 -1.4-2.5-2.3-5.2-3.4-7.8 -1-2.4-1.2-4.2 2.3-4.4 3.9-0.3 3.8-2.5 2-5.1 -1.9-2.8-3.1-5.8-4.1-8.9 -0.5-1.6-0.9-3.3 1-3.7 5.2-0.9 3.3-3.4 1.8-6.2 -1.3-2.5-2.2-5.2-3.6-7.7 -1.1-2-0.3-3.7 1.4-4 4.9-1 3.4-3.7 2.1-6.5 -1-2.1-1.9-4.2-3.1-6.2 -1.8-3-1.3-4.7 2.4-5 4-0.3 3.6-2.3 2-5 -1.7-2.8-3.3-5.8-4.8-8.7 -1-1.9-1-3.8 1.6-4.2 5.7-0.8 4.2-3.5 2-6.6 -1-1.5-1.7-3.2-2.7-4.8 -2-3.1-2.2-5.2 2.4-5.6 1.5-0.1 4-0.7 2-3C31.4 15 30.2 11.2 26.4 8.1zM112.4 9.5c-0.5 1.2-0.9 1.6-0.9 2.1 -1.5 21.4-1 42.8-0.7 64.2 0 1.6 0.2 3.3 2.1 3.4 1.9 0.2 4.3 0.4 5.6-1.4 1-1.4-0.7-2.7-1.5-3.8 -2.3-3-4.3-5.7 1.6-6.8 2.9-0.5 2.3-2.2 1-4 -1.7-2.4-3.5-4.8-4.9-7.4 -0.8-1.3-1.6-3.4 1.2-3.7 5.6-0.6 4.6-3.3 2.1-6.5 -1.1-1.4-2.2-2.9-3.1-4.4 -1.7-2.6-2.2-4.9 2-5.6 3.4-0.6 3.6-2.1 1.4-4.7 -0.7-0.8-1.2-1.9-2-2.7 -3.9-4.4-3.8-5.2 1.8-7.1 3-1 4-2.2 1.4-4.7C117.1 14.3 114.9 12.1 112.4 9.5zM35.4 115.5c2 4.8 3.5 8.6 5.3 12.3 0.5 1.1 2 1.8 3 2.6 0.6-1.5 2.2-2.6 1.6-4.5 -0.3-0.9-0.8-1.8-1.5-2.5C41.5 120.8 39.3 118.1 35.4 115.5zM37.8 46.4c2.2 5.6 4.7 11 9.4 15.2C47.9 54.3 41.5 51.1 37.8 46.4zM46 21.4c-1.4-5.6-5.5-9.5-9.1-13.7C40.1 12.2 40.5 18.5 46 21.4zM122 27.9c1 3 2.4 5 4.4 6.8 1.2 1 2.3 2.3 3.6 0.6 1.1-1.4 0.4-2.9-0.9-3.9C127.2 29.8 125.1 28.5 122 27.9zM36.1 83.1c1.8 3.3 3.5 6.7 5.4 9.9 0.6 1.1 1.5 2.6 3.1 1.4 1.3-1 0.7-2.4-0.1-3.6C42.5 87.6 39.8 84.8 36.1 83.1zM122.2 41.8c-0.3 0.3-0.7 0.6-1 0.9 1.8 2.3 3.4 4.7 5.3 6.8 0.9 1 1.6 3.6 3.5 1.7 1.5-1.5 0.5-3.6-1-4.7C126.9 44.6 124.5 43.3 122.2 41.8zM37.6 98.8c-0.3 0.3-0.7 0.6-1 0.8 1.6 3.1 3.1 6.2 4.8 9.2 0.6 1 1.2 2.9 2.9 1.8 1.3-0.8 0.9-2.3 0.3-3.6C42.9 103.6 39.5 101.9 37.6 98.8zM43.8 115.6c1.8 2.5 3.5 5.1 5.3 7.6 0.8 1 2 2.1 3.3 0.8 1.2-1.1 0.5-2.4-0.4-3.5C49.9 118.1 46.9 116.9 43.8 115.6zM36.4 135c2.3 3.9 3.9 6.7 5.7 9.4 0.6 0.9 1.3 2.3 2.7 1.2 1.3-1 1.2-2.3 0-3.4C42.5 140 40.6 137.3 36.4 135zM128.8 23c1.1 2.8 3.3 4.2 5.2 6 1 0.9 2.2 2.1 3.2 0.6 0.9-1.3 0.4-2.9-1.2-3.7C133.8 24.7 131.7 23.1 128.8 23zM127.7 39.9c2.5 2.6 4.4 4.7 6.4 6.7 0.8 0.8 1.8 1.9 2.9 0.8 1.3-1.3 0.7-3-0.7-3.8C133.8 42.2 131.7 40 127.7 39.9zM50.9 142.1c1-0.4 1.9-0.8 1.8-2.1 -0.1-3.9-3.8-3.9-6.1-5.4 -0.7-0.5-1.7 0.5-1.3 1.4C46.3 138.7 48.4 140.5 50.9 142.1zM44.1 27c1.1 2.7 2.1 5.6 5.1 6.8 1 0.4 0.9-0.9 0.9-1.7C50.2 28.1 46.6 28.3 44.1 27zM44.3 97.6c-0.2 0.2-0.5 0.5-0.7 0.7 1.6 2.1 3.1 4.3 4.7 6.4 0.8 1 1.9 2.3 3.2 0.8 1-1.1 0.5-2.6-0.7-3.5C48.7 100.5 46.5 99.1 44.3 97.6zM118.9 9c2.1 2.5 3.4 4.2 4.8 5.7 0.8 0.9 1.9 1.7 2.9 0.4 0.7-1 0.5-2.3-0.6-3.1C124.3 10.7 122.5 9.6 118.9 9zM62.6 38.7c1.2 3.4 3.2 5.2 6.1 6.1 0.1 0 0.8-0.7 0.7-1.1C68.8 40.5 66.3 39.5 62.6 38.7zM56.2 134.7c1.8 2.4 3 4.1 4.4 5.7 0.7 0.8 1.6 1.2 2.6 0.4 1-0.8 0.5-1.8-0.1-2.6C61.5 136.5 59.4 135.6 56.2 134.7zM54 97.7c0.6 0.9 0.8 1.5 1.3 1.9 1.1 1.1 1.7 2.9 3.6 3 0.7 0 1-0.7 0.9-1.5 -0.2-2-1.8-2.6-3.3-3.2C55.9 97.7 55.2 96.9 54 97.7zM65.9 95.9c1.7 1.5 1.6 4.4 4.2 5 0.7 0.1 1.3-0.6 1.1-1.3C70.7 97 68.1 96.7 65.9 95.9zM43.5 44.8c1 3 2.3 4.8 4 6.2 0.6 0.5 1.3 1.1 2.1 0.4 0.7-0.6 0.5-1.6 0.1-2.3C48.6 47.1 46.4 46.2 43.5 44.8zM54 22.6c1 3.3 2.2 5 4.4 5.7 0.2 0.1 1.2-1.1 1.1-1.4C58.8 24.7 56.8 23.9 54 22.6zM65.5 76.6c1 2 1.5 4.4 4.1 5 0.3 0.1 1-0.6 1-0.8C70.2 78 67.2 78.1 65.5 76.6zM54.8 43.9c1.1 1.9 1.9 4.2 4.4 4.8 0.3 0.1 1.2-0.9 1.2-1.2 -0.6-2.7-3.3-2.8-5.1-3.9C55.2 43.6 55 43.8 54.8 43.9zM131.7 72.4c1.6 1.6 2.1 4.4 5 4.6 0.2 0 0.7-0.9 0.6-1.1C136.4 73.6 134.6 72.3 131.7 72.4zM56.8 117.9c0.6 2.3 1.6 4.4 4.1 4.9 0.2 0 0.8-0.7 0.8-1C61.7 118.6 58.9 118.8 56.8 117.9zM65.8 60.5c1.2 1.6 1.6 3.9 3.9 4.4 0.2 0 0.8-0.7 0.8-1.1C70.2 61.2 68.1 60.8 65.8 60.5zM67.9 134.3c0.8 1.6 1.4 3.4 3.8 3.9C71.9 135.4 70.1 134.7 67.9 134.3zM54.6 79.5c0.7 1.9 1.4 3.7 3.4 4.3 0.1 0 0.8-0.7 0.7-1C58.7 80.3 56.7 79.9 54.6 79.5zM56.3 63c1.2 1.5 1.7 3.7 4 3.8 0.2 0 0.7-0.8 0.6-1.2C60.2 63.5 58.5 62.8 56.3 63zM131.6 10.7c0.4 2.4 1.6 3.6 3.4 4.1 0.9 0.3 1.2-0.7 1-1.3C135.2 11.8 133.6 11.3 131.6 10.7z"/>
+			</svg>
+		</a>
+		<a href="/" class="header-opener-two tk-futura-pt">The Pudding
+		</a>
+	</div>
+	<div class="title-section">
+		<p class="opening-title-big opening-one tk-futura-pt">Loading</p>
+		<p class="opening-title-big opening-two tk-futura-pt">Taste Evolved </p>
+	</div>
+	<p class="description-section tk-futura-pt">Every top 5 song, from 1958 - 2016, so we can stop arguing about when music was still good.
 	</p>
-	<time class='intro__time'>Month 2019</time>
+	<div class="paused-play-button-two">
+		<p class="button-text text-load tk-futura-pt">PLAY 1997
+		</p>
+		<div class="border-top-button button-border">
+		</div>
+		<div class="button-symbol text-load">
+		</div>
+		<div class="border-bottom-button button-border">
+		</div>
+	</div>
+	<p class="headphones-tip text-load tk-futura-pt">
+		HEADPHONES REQUIRED
+	</p>
+</div>
+<div class="methodology tk-futura-pt">
+	<p class="methodology-text">Methodology: this uses Billboard's <a href="https://en.wikipedia.org/wiki/Hot_Rap_Songs">Hot Rap Songs</a> Chart. Billboard began publishing this list as a weekly sales-based chart, then known as Hot Rap Singles, in 1989. In 2002, the chart was replaced with a list titled <a href="http://www.billboard.com/charts/rap-song">Hot Rap Tracks</a>, based on radio audience impressions monitored by Nielsen Music. The chart added digital downloads and streaming data into its formula in 2012 and was renamed Hot Rap Songs, as it is known today. For simplicity, the animated line chart only displays only songs that peaked in the top 5.
+	</p>
+</div>
+<div class="mobile-byline">
+	<div class="byline-title tk-futura-pt">
+		<div class="byline-container">
+			<p class="byline-header">DESIGN LOVE BY
+			</p>
+			<a href="http://useallfive.com"><p class="byline-text">Use All<br>Five
+			</p></a>
+		</div>
+		<div class="byline-container">
+			<p class="byline-header">0'S + 1'S
+			</p>
+			<a href="http://twitter.com/matthew_daniels"><p class="byline-text">Matt<br>Daniels
+			</p></a>
+		</div>
+	</div>
 </div>
