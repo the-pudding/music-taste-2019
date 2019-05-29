@@ -1,13 +1,32 @@
 .top-frame
   color white
   position absolute
-  top 50px
+  top 10px
   left 0px
   right 0px
   margin 0 auto
   z-index 10000
   width 100%
   font-family 'National 2 Narrow Web'
+  .logo-line
+    display flex
+    height 47px
+    justify-content center
+    margin-bottom 10px
+    border none
+    svg
+      width 100px
+      path
+        fill white
+    p
+      align-self center
+      margin 0
+      margin-left 10px
+      font-weight 400
+      font-size 18px
+      color white
+      margin-top -3px
+
   .subhead
     font-size 15px
     text-align center
@@ -82,7 +101,7 @@
       width 30px
       transform translate(-100%,-50%)
       position absolute
-      top 0px
+      top 6px
       cursor pointer
       cursor hand
       left -5px
@@ -118,12 +137,14 @@
           display none
       .noUi-base
         background none
+        .noUi-origin
+          top 5px
         &:after
           content ''
           width 100%
           height 5px
           position absolute
-          top 0px
+          top 6px
           border-radius 0px
           background rgba(255,255,255,.2)
       .noUi-connects
@@ -132,6 +153,7 @@
           background white
           height 5px
           border-radius 0px
+          margin-top 6px
       .noUi-tooltip
         background none
         border none
@@ -359,7 +381,7 @@ p.opening-explainer {
 
 .content {
     position: relative;
-    margin: 40px auto 100px;
+    margin: 0px auto 0px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -2316,22 +2338,12 @@ a.header-opener-two {
     .face
       transform translate(-50%,0)
       z-index 100
-      transition opacity 2s
       //transition-delay .5s
       background-color #111
-      &:after
-        content ''
-        position absolute
-        width 3px
-        height 5px
-        background pink
-        bottom 0px
-        left 0px
-        right 0px
-        margin 0 auto
-        transform translate(0,100%)
-        //border-bottom-left-radius 50%
-        //border-bottom-right-radius 50%
+      border-style solid
+      border-width 0px 0px 5px 0px
+      transition border-color .5s, opacity 2s
+      border-color rgba(0,0,0,0)
       &:before
         content ''
         width 100%
@@ -2366,4 +2378,4 @@ a.header-opener-two {
 
 
 .screen
-  display block
+  display none

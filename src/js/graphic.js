@@ -778,6 +778,9 @@ function newCode(){
 				var data = d;
 				return faceBackgroundImage(data);
 			})
+			.style("border-color",function(d){
+				return faceBorder(d);
+			})
 			.style("opacity",function(d){
 				var data = d;
 				return faceOpacity(data);
@@ -1309,6 +1312,26 @@ function newCode(){
 	    //   return "url(#temperature-gradient)";
 	    // }
 	  }
+
+		function faceBorder(d){
+	    if (dateAhead in d.nestedDateArray){
+	      var rank = d.nestedDateArray[dateAhead];
+				return colorScheme[5-rank];
+	    }
+			return null;
+	  }
+		function faceShadow(d){
+			if (dateAhead in d.nestedDateArray){
+				var rank = d.nestedDateArray[dateAhead];
+				if(rank == 1){
+					return "1px 3px 6px #800080, 1px 3px 9px #800080";
+				}
+			}
+			return null;
+		}
+
+
+
 	  function pathOpacity(d){
 	    if (dateAhead in d.nestedDateArray){
 	      var rank = d.nestedDateArray[dateAhead];
@@ -1646,6 +1669,12 @@ function newCode(){
 	        })
 					.style("width",faceSize+"px")
 					.style("height",faceSize+"px")
+					.style("border-color",function(d){
+						return faceBorder(d);
+					})
+					.style("box-shadow",function(d){
+						return faceShadow(d);
+					})
 	        .transition()
 					.style("top",function(d){
 						return faceTop(d);
