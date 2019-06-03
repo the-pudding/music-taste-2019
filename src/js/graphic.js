@@ -22,7 +22,7 @@ viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHei
 
 var margin = {top: 0, right: 0, bottom: 0, left:0},
 		width = Math.min(1100,viewportWidth) - margin.left - margin.right,
-		height = (viewportHeight - 112) - margin.top - margin.bottom;
+		height = (712 - 112) - margin.top - margin.bottom;
 
 let faceSize = Math.min((width-160)/5,110);
 
@@ -440,10 +440,10 @@ function newCode(){
 	    .append("clipPath")
 	    .attr("id", "clip")
 	    .append("rect")
-	    .attr("x", -10)
+	    .attr("x", 0)
 	    .attr("y", -500)
 	    .attr("width", width)
-	    .attr("height", 500+height-70)//height);
+	    .attr("height", 500 + height - faceSize*.6 )//height);
 
 	  svg.append("defs")
 	    .append("clipPath")
