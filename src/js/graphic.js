@@ -26,6 +26,10 @@ var margin = {top: 0, right: 0, bottom: 0, left:0},
 
 let faceSize = Math.min((width-160)/5,110);
 
+console.log(faceSize);
+
+d3.select(".ranking").style("margin-left",faceSize/2+"px")
+
 if(viewportWidth < 700){
 	width = Math.floor(viewportWidth,550)
 }
@@ -100,9 +104,9 @@ function newCode(){
 	var sideBarParse = d3.time.format("%b '%y");
 	var yearParse = d3.time.format("%Y")
 
-	var uniqueRowsCsv = "assets/data/unique_rows.csv";
+	var uniqueRowsCsv = "assets/data/unique_rows_2019.csv";
 
-	var startString = "1978-01-14";
+	var startString = "1964-06-13";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
@@ -122,7 +126,7 @@ function newCode(){
 
 	$( document ).ready(function() {
 
-	d3.csv("assets/data/all_rows.csv", function(error, data) {
+	d3.csv("assets/data/all_rows_2019_1.csv", function(error, data) {
 	  d3.csv(uniqueRowsCsv, function(error, songsUnique) {
 
 	  if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -269,13 +273,16 @@ function newCode(){
 	    var duration1 = 800;
 	    var duration2 = 400;
 
-
 			var filteredDataFirst = testDates.get(unParse(dates[0]).slice(0,7)).values;
-			var filteredDataNext = testDates.get(unParse(d3.time.month.offset(dates[0],1)).slice(0,7)).values;
-			var filteredDataThird = testDates.get(unParse(d3.time.month.offset(dates[0],2)).slice(0,7)).values;
-			var filteredDataFourth = testDates.get(unParse(d3.time.month.offset(dates[0],2)).slice(0,7)).values;
-
-			filteredData = _.unionBy(filteredDataFirst, filteredDataNext,filteredDataThird,filteredDataFourth, 'key');
+			if(dates[0] <= new Date(parseDate("2019-02-02"))){
+				var filteredDataNext = testDates.get(unParse(d3.time.month.offset(dates[0],1)).slice(0,7)).values;
+				var filteredDataThird = testDates.get(unParse(d3.time.month.offset(dates[0],2)).slice(0,7)).values;
+				var filteredDataFourth = testDates.get(unParse(d3.time.month.offset(dates[0],2)).slice(0,7)).values;
+				filteredData = _.unionBy(filteredDataFirst, filteredDataNext,filteredDataThird,filteredDataFourth, 'key');
+			}
+			else {
+				filteredData = filteredDataFirst;
+			}
 
 			d3.selectAll("#glow").remove();
 
@@ -332,6 +339,10 @@ function newCode(){
 				.append("div")
 	      .attr("class","face tk-futura-pt")
 	      .style("background-image", function(d){
+					if(changedYear == "scroll"){
+						return null;
+					}
+					return null
 	        if(d["track_info"]["artist_url"] == "NULL"){
 	          return null
 	        }
@@ -874,7 +885,133 @@ function newCode(){
 
 	  var sampleRotate;
 
-		console.log(testDates);
+		window.addEventListener("wheel", event => {
+	    const delta = Math.sign(event.deltaY);
+			// if(Math.round(event.timeStamp) % 2 == 0){
+				testScroll(delta);
+			// }
+		});
+
+		var timeoutScroll = null;
+
+		function testScroll(direction){
+
+			timeoutScroll = window.setTimeout(function(d){
+
+				face
+		      .style("background-image", function(d){
+		        if(d["track_info"]["artist_url"] == "NULL"){
+		          return null
+		        }
+		        if(d["track_info"]["artist_url"] == "manual"){
+		          var hostUrl = document.location.origin;
+		          var pathUrl = document.location.pathname.replace("index.html","");
+		          var idSong = nestedDatesTwo[unParse(d3.time.day.offset(dates[dates.length-1], 7))]["track"];
+		          nextSong = hostUrl+pathUrl+"url/"+idSong + ".m4a"
+		          return "url("+nextSong+")";
+		        }
+		        return "url(https://i.scdn.co/image/"+d["track_info"]["artist_url"]+")"
+		      })
+
+			},500)
+
+			for (var i in dates){
+	      dates[i] = d3.time.day.offset(dates[i], 7*direction);
+	    };
+
+			currentDate = unParse(dates[0]);
+			dateAhead = unParse(d3.time.day.offset(dates[0], 7));
+			twoDatesAhead = unParse(d3.time.day.offset(dates[0], 14));
+
+			changeYear("scroll");
+
+			x.domain([dates[0], dates[dates.length-1]]);
+
+			face
+				.style("opacity",function(d){
+					return faceOpacity(d)
+				})
+				.style("width",faceSize+"px")
+				.style("height",faceSize+"px")
+				.style("border-color",function(d){
+					return faceBorder(d);
+				})
+				.style("top",function(d){
+					return faceTop(d);
+				})
+				.style("left",function(d){
+					var data = d;
+					return faceLeft(data);
+				})
+				;
+
+			lines
+				.style("top",function(d){
+					return x(d)+"px";
+				})
+				.style("opacity",function(d,i){
+					if(i==0){
+						return 0;
+					}
+				})
+				;
+
+			d3.select(".date-lines-container")
+				.style("transform", "translate(0px,"+ x(d3.time.day.offset(dates[dates.length-1], 7)) + "px)")
+				;
+
+			path
+			.attr("d", function(d){
+					//return lineFunction(d.values);
+					return line(d.values);
+					return line(getPathWeeks(d));
+				})
+				.style("stroke", function(d){
+					var data = d;
+					return pathStroke(data);
+				})
+				.style("opacity", function(d){
+					var data = d;
+					return pathOpacity(data);
+				})
+				.style("stroke-width", function(d){
+					var data = d;
+					return pathStrokeWidth(data);
+				})
+				.each(function(d,i){
+					if (dateAhead in d.nestedDateArray){
+						var rank = d.nestedDateArray[dateAhead];
+						if(rank==1){
+							clone(d3.select(this)).attr('filter', 'url(#blurred)').style("stroke",colorScheme[0]).attr("id","glow").style("stroke-width",'10px').style("opacity",1)
+						}
+						else{
+							clone(d3.select(this))
+								//.attr('filter', 'url(#blurredTwo)')
+								.style("stroke","#2a292f").attr("id","glow").style("stroke-width",'6px');
+						}
+					}
+				})
+				;
+
+			d3.select(".path-container").selectAll("path")
+				.attr("transform", "translate(0,0)")
+
+				//.attr("transform", "translate(0,"+ x(d3.time.day.offset(dates[dates.length-1], 7)) + ")")
+
+
+			// d3.select(".path-container").selectAll("path")
+			// 	.transition()
+			// 	.attr("transform", "translate(0,0)")
+			// 	;
+
+
+	  };
+
+		// d3.select("body").on("click",function(d){
+		// 	console.log("here");
+		// 	testScroll("hi");
+		// })
+
 
 		function moveChart(d){
 
@@ -1207,6 +1344,10 @@ function newCode(){
 
 
 	  function tick() {
+			if(unParse(dates[0]) == "2019-03-30"){
+				moveChart("stop");
+				return null;
+			}
 
 	    var currTime = context.currentTime;
 
@@ -1400,6 +1541,7 @@ function newCode(){
 						if (dateAhead in d.nestedDateArray){
 							var rank = d.nestedDateArray[dateAhead];
 							if(rank==1){
+								console.log(d);
 								clone(d3.select(this)).attr('filter', 'url(#blurred)').style("stroke",colorScheme[0]).attr("id","glow").style("stroke-width",'10px').style("opacity",1)
 							}
 							else{
@@ -1409,6 +1551,7 @@ function newCode(){
 							}
 						}
 					})
+					;
 
 				d3.select(".path-container").selectAll("path")
 					.attr("transform", "translate(0,"+ x(d3.time.day.offset(dates[dates.length-1], 7)) + ")")
@@ -1631,7 +1774,7 @@ function newCode(){
 
 			if(!muted){
 				gainNode.gain.linearRampToValueAtTime(0, startingTime);
-		    gainNode.gain.linearRampToValueAtTime(1, startingTime + 2);
+		    gainNode.gain.linearRampToValueAtTime(1, startingTime + 1);
 			}
 			else {
 				gainNode.gain.value = 0;
@@ -1644,7 +1787,7 @@ function newCode(){
 	    source.start(context.currentTime + (startingTime - context.currentTime));
 
 			if(!muted){
-				gainNode.gain.linearRampToValueAtTime(1, startingTime + duration-2);
+				gainNode.gain.linearRampToValueAtTime(1, startingTime + duration-1);
 		    gainNode.gain.linearRampToValueAtTime(0, startingTime + duration);
 			}
 
