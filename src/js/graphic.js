@@ -24,18 +24,22 @@ var margin = {top: 0, right: 0, bottom: 0, left:0},
 		width = Math.min(1100,viewportWidth) - margin.left - margin.right,
 		height = (712 - 112) - margin.top - margin.bottom;
 
-let faceSize = Math.min((width-160)/5,110);
+let faceSize = Math.min((width-40)/5,110);
 
-console.log(faceSize);
-
-d3.select(".ranking").style("margin-left",faceSize/2+"px")
+d3.select(".ranking").style("margin-left",function(){
+	if(viewportWidth > 420){
+		return faceSize/2+"px"
+	}
+	return null;
+})
 
 if(viewportWidth < 700){
 	width = Math.floor(viewportWidth,550)
 }
-if(viewportWidth < 500){
+if(viewportWidth < 421){
 	width = viewportWidth - 0;
-	faceSize = Math.min(faceSize,(width-80)/5);
+	height = 550;
+	//faceSize = Math.min(faceSize,(width)/5);
 }
 
 // if(viewportHeight - 112 < 600){
@@ -268,8 +272,6 @@ function newCode(){
 
 	  function changeYear(changedYear){
 
-			console.log("changing year");
-
 	    var duration1 = 800;
 	    var duration2 = 400;
 
@@ -299,7 +301,8 @@ function newCode(){
 	      return d.key;
 	    });
 
-	    path.enter().append("path")
+	    path.enter()
+				.append("path")
 	      .attr("class", "line")
 	      .attr("d", function(d){
 					return line(d.values);
@@ -311,6 +314,9 @@ function newCode(){
 	        var data = d;
 	        return pathStroke(data);
 	      })
+				// .style("display",function(d){
+				// 	return faceDisplay(d)
+				// })
 	      .style("opacity",function(d){
 					return pathOpacity(d);
 	      })
@@ -338,11 +344,13 @@ function newCode(){
 	    face.enter()
 				.append("div")
 	      .attr("class","face tk-futura-pt")
+				// .style("display",function(d){
+				// 	return faceDisplay(d)
+				// })
 	      .style("background-image", function(d){
 					if(changedYear == "scroll"){
 						return null;
 					}
-					return null
 	        if(d["track_info"]["artist_url"] == "NULL"){
 	          return null
 	        }
@@ -454,7 +462,21 @@ function newCode(){
 	    .attr("x", 0)
 	    .attr("y", -500)
 	    .attr("width", width)
-	    .attr("height", 500 + height - faceSize*.6 )//height);
+	    .attr("height",function(d){
+				if(viewportWidth < 326){
+					return 500 + height - faceSize*.9
+				}
+				if(viewportWidth < 376){
+					return 500 + height - faceSize*.8
+				}
+				if(viewportWidth < 411){
+					return 500 + height - faceSize*.75
+				}
+				if(viewportWidth < 421){
+					return 500 + height - faceSize*.7
+				}
+				return 500 + height - faceSize*.6
+			})
 
 	  svg.append("defs")
 	    .append("clipPath")
@@ -617,13 +639,14 @@ function newCode(){
 				.attr("y2", height-30)
 	      .selectAll("stop")
 	        .data([
-						{offset:(0)+"%",color:"rgba(255,193,7,0.0)"},
-						{offset:(100)+"%",color:"rgba(255,193,7,0.1)"}
+						{offset:(0)+"%",color:"rgb(255,193,7)",opacity: 0},
+						{offset:(100)+"%",color:"rgb(255,193,7)",opacity: .2}
 					]
 				)
 	      .enter().append("stop")
 	        .attr("offset", function(d) { return d.offset; })
-	        .attr("stop-color", function(d) { return d.color; });
+	        .attr("stop-color", function(d) { return d.color; })
+					.attr("stop-opacity", function(d) { return d.opacity; });
 
 		guitarHeroOutline.append("rect")
 			.attr("x",0)
@@ -673,25 +696,6 @@ function newCode(){
 	  faces = d3.select(".chart").append("div")
 	    .attr("id","faces")
 	    ;
-
-		fixedFace = faces.append("div")
-			.attr("class","face-fixed-container")
-			.selectAll(".face-fixed")
-			.data(d3.range(5))
-			.enter()
-			.append("div")
-			.attr("class","face-fixed face")
-			.style("left",function(d,i){
-				return y(i+1) + faceAdjust + margin.top + "px"
-			})
-			.style("top",function(d){
-				return x(dates[1])+"px";
-			})
-			.style("background-image",function(d,i){
-				var data = rankingMap.get(dateAhead).values[i];
-				return faceBackgroundImage(data);
-			})
-			;
 
 		face = faces.append("div").attr("class","face-container")
 			.selectAll(".face")
@@ -864,6 +868,26 @@ function newCode(){
 			}
 	  }
 
+		function faceDisplay(d){
+			if(dateAhead in d.nestedDateArray){
+				return null;
+			}
+			else {
+				if(unParse(d3.time.day.offset(dates[0], -7)) in d.nestedDateArray || unParse(d3.time.day.offset(dates[0], -14)) in d.nestedDateArray){
+					return null;
+				}
+				if(unParse(dates[2]) in d.nestedDateArray || unParse(dates[3]) in d.nestedDateArray || unParse(dates[4]) in d.nestedDateArray){
+					return null;
+				}
+				if(dates[0] > d3.max(d.values, function(d){ return d.chart_date})){
+					return "none";
+				}
+				else{
+					return "none";
+				}
+			}
+	  }
+
 	  var bioName = d3.select(".bio-name");
 	  var bioText = d3.select(".bio-info");
 
@@ -887,14 +911,20 @@ function newCode(){
 
 		window.addEventListener("wheel", event => {
 	    const delta = Math.sign(event.deltaY);
-			// if(Math.round(event.timeStamp) % 2 == 0){
+			if(Math.round(event.timeStamp) % 2 == 0){
 				testScroll(delta);
-			// }
+			}
 		});
 
 		var timeoutScroll = null;
 
 		function testScroll(direction){
+
+			if(playing){
+				moveChart("stop")
+			}
+
+			window.clearTimeout(timeoutScroll);
 
 			timeoutScroll = window.setTimeout(function(d){
 
@@ -913,7 +943,9 @@ function newCode(){
 		        return "url(https://i.scdn.co/image/"+d["track_info"]["artist_url"]+")"
 		      })
 
-			},500)
+				moveChart(dates[0].getTime())
+
+			},1000)
 
 			for (var i in dates){
 	      dates[i] = d3.time.day.offset(dates[i], 7*direction);
@@ -1080,14 +1112,11 @@ function newCode(){
 		          var timeOne = dates[1];
 		          var timeTwo = d3.time.day.offset(dates[1], 7*i);
 
-							console.log(nestedDatesTwo[unParse(timeOne)],nestedDatesTwo[unParse(timeTwo)]);
-
 		          if(nestedDatesTwo[unParse(timeOne)]["track"] != nestedDatesTwo[unParse(timeTwo)]["track"]){
 		            playLength = Math.max((i-1) * shiftDuration,shiftDuration);
 		            break;
 		          }
 		        }
-						console.log(playLength);
 
 		        var currTime = context.currentTime;
 
@@ -1147,7 +1176,7 @@ function newCode(){
 				// }
 				// return "yellow";
 			}
-			return "#fff";
+			return "none";
 
 	    // var rank = d.nestedDateArray[currentDate];
 	    // if (rank == 1){
@@ -1237,7 +1266,6 @@ function newCode(){
 		if(viewportWidth < 700){
 			orientation = "horizontal"
 		}
-		console.log(orientation);
 
 		var sliderDates = noUiSlider.create(d3.select("#slider").node(), {
 		    start: [start.getTime()],
@@ -1267,12 +1295,14 @@ function newCode(){
 
 		sliderDates
 			.on('change', function (values, handle, unencoded, tap, positions) {
+				console.log("changing");
 				moveChart(unencoded)
 			});
 
 		sliderDates
-			.on('end', function (values, handle) {
+			.on('end', function (values, handle, unencoded, tap, positions) {
 				dragging = false;
+				moveChart(unencoded)
 			});
 
 		let playVisible = true;
@@ -1295,6 +1325,51 @@ function newCode(){
 		d3.select(".start-button-muted").on("click",function(){
 			d3.select(".loading-screen").style("opacity",0).style("pointer-events","none").transition().duration(0).delay(2000).remove();
 			d3.select("#content").classed("not-loaded",false);
+
+			d3.select(".vol").select(".mute-icon").style("display","none");
+			d3.select(".vol").select(".vol-icon").style("display","block");
+
+			var playNow2 = createSource(scratch);
+	    source2 = playNow2.source;
+
+	    if (!source2.start){
+	      source2.start = source.noteOn;
+	    }
+			var gainNode = playNow2.gainNode;
+			gainNode.gain.value = 0;
+			source2.start(0);
+
+
+			// var playNow = createSource(bufferNow);
+			// source = playNow.source;
+			// source.loop = true;
+			// var gainNode = playNow.gainNode;
+			// var duration = playingLength/1000 + 2;
+			//
+			//
+			// if(!muted){
+			// 	gainNode.gain.linearRampToValueAtTime(0, startingTime);
+			// 	gainNode.gain.linearRampToValueAtTime(1, startingTime + 1);
+			// }
+			// else {
+			// 	gainNode.gain.value = 0;
+			// }
+			//
+			// if (!source.start){
+			// 	source.start = source.noteOn;
+			// }
+			//
+			// source.start(context.currentTime + (startingTime - context.currentTime));
+			//
+			// if(!muted){
+			// 	gainNode.gain.linearRampToValueAtTime(1, startingTime + duration-1);
+			// 	gainNode.gain.linearRampToValueAtTime(0, startingTime + duration);
+			// }
+			//
+			// source.stop(context.currentTime + (startingTime - context.currentTime) + duration + .1)
+			//
+			// globalGain = gainNode;
+
 			muted = true;
 			moveChart(dates[0].getTime())
 		});
@@ -1397,7 +1472,6 @@ function newCode(){
 	    }
 
 			if(!dragging){
-				console.log(dragging);
 				sliderDates.set(Number(dates[0].getTime()));
 			}
 
@@ -1470,18 +1544,13 @@ function newCode(){
 
 	      x.domain([dates[0], dates[dates.length-1]]);
 
-				fixedFace.style("background-image",function(d,i){
-						var data = rankingMap.get(currentDate).values[i];
-						return faceBackgroundImage(data);
-					})
-					.style("top",function(d){
-						return x(dates[1])+"px";
-					})
-
 	      face
 					.style("opacity",function(d){
 						return faceOpacity(d)
 	        })
+					// .style("display",function(d){
+					// 	return faceDisplay(d)
+	        // })
 					.style("width",faceSize+"px")
 					.style("height",faceSize+"px")
 					.style("border-color",function(d){
@@ -1525,33 +1594,35 @@ function newCode(){
 						return line(d.values);
 	          return line(getPathWeeks(d));
 	        })
-	        .style("stroke", function(d){
-	          var data = d;
-	          return pathStroke(data);
-	        })
-					.style("opacity", function(d){
-						var data = d;
-						return pathOpacity(data);
-					})
-					.style("stroke-width", function(d){
-						var data = d;
-						return pathStrokeWidth(data);
-					})
-					.each(function(d,i){
-						if (dateAhead in d.nestedDateArray){
-							var rank = d.nestedDateArray[dateAhead];
-							if(rank==1){
-								console.log(d);
-								clone(d3.select(this)).attr('filter', 'url(#blurred)').style("stroke",colorScheme[0]).attr("id","glow").style("stroke-width",'10px').style("opacity",1)
-							}
-							else{
-								clone(d3.select(this))
-									//.attr('filter', 'url(#blurredTwo)')
-									.style("stroke","#2a292f").attr("id","glow").style("stroke-width",'6px');
-							}
+        .style("stroke", function(d){
+          var data = d;
+          return pathStroke(data);
+        })
+				.style("opacity", function(d){
+					var data = d;
+					return pathOpacity(data);
+				})
+				// .style("display",function(d){
+				// 	return faceDisplay(d)
+				// })
+				.style("stroke-width", function(d){
+					var data = d;
+					return pathStrokeWidth(data);
+				})
+				.each(function(d,i){
+					if (dateAhead in d.nestedDateArray){
+						var rank = d.nestedDateArray[dateAhead];
+						if(rank==1){
+							clone(d3.select(this)).attr('filter', 'url(#blurred)').style("stroke",colorScheme[0]).attr("id","glow").style("stroke-width",'10px').style("opacity",1)
 						}
-					})
-					;
+						else{
+							clone(d3.select(this))
+								//.attr('filter', 'url(#blurredTwo)')
+								.style("stroke","#2a292f").attr("id","glow").style("stroke-width",'6px');
+						}
+					}
+				})
+				;
 
 				d3.select(".path-container").selectAll("path")
 					.attr("transform", "translate(0,"+ x(d3.time.day.offset(dates[dates.length-1], 7)) + ")")
@@ -1722,7 +1793,6 @@ function newCode(){
 
 	function loadSounds(url,playingLength,startingTime,thing){
 	  if(url == "https://p.scdn.co/mp3-preview/NULL"){
-	    console.log("null song");
 	  }
 	  else{
 	    var bufferLoader = new BufferLoader(
@@ -1770,7 +1840,6 @@ function newCode(){
 	    var gainNode = playNow.gainNode;
 	    var duration = playingLength/1000 + 2;
 
-			console.log(bufferNow);
 
 			if(!muted){
 				gainNode.gain.linearRampToValueAtTime(0, startingTime);
