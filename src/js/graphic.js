@@ -108,7 +108,7 @@ function newCode(){
 	var sideBarParse = d3.time.format("%b '%y");
 	var yearParse = d3.time.format("%Y")
 
-	var uniqueRowsCsv = "assets/data/unique_rows_2019.csv";
+	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
 	var startString = "1964-04-11";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -155,6 +155,7 @@ function newCode(){
 				return x(d.chart_date);
 			})
 			;
+
 
 	  data.forEach(function(d) {
 	    if(+d.chart_date.slice(0,4)<1962 && d.chart_date != "1961-12-30"){
@@ -421,9 +422,9 @@ function newCode(){
 	    .attr("class","lines-container")
 	    ;
 
-		var colorScheme = d3.schemeYlGnBu[5];
+		// var colorScheme = d3.schemeYlGnBu[5];
 		//colorScheme = d3.schemeGnBu[5];
-		colorScheme = ["#49217a","#852c82","#b52f59","#f5af71","#fcfbbc"].reverse()
+		var colorScheme = ["#49217a","#852c82","#b52f59","#f5af71","#fcfbbc"].reverse()
 		//colorScheme = ["yellow","orange","red","green","steelblue"]//.reverse()
 
 
@@ -909,12 +910,12 @@ function newCode(){
 
 	  var sampleRotate;
 
-		window.addEventListener("wheel", event => {
-	    const delta = Math.sign(event.deltaY);
-			if(Math.round(event.timeStamp) % 2 == 0){
-				testScroll(delta);
-			}
-		});
+		// window.addEventListener("wheel", event => {
+	  //   const delta = Math.sign(event.deltaY);
+		// 	if(Math.round(event.timeStamp) % 2 == 0){
+		// 		testScroll(delta);
+		// 	}
+		// });
 
 		var timeoutScroll = null;
 
@@ -1515,7 +1516,9 @@ function newCode(){
 					}
 					return nestedDatesTwo[unParse(dates[0])].title;
 				});
-				d3.select("#top-artist-sub").text(nestedDatesTwo[unParse(dates[0])].artist);
+				d3.select("#top-artist-sub").text(function(){
+					return artistClean(nestedDatesTwo[unParse(dates[0])].artist);
+				});
 
 
 	      if(nestedDatesTwo[unParse(dates[0])]["track"] != nestedDatesTwo[unParse(dates[1])]["track"]) {

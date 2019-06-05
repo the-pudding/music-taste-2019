@@ -63,7 +63,7 @@ body
     max-width 90%
     @media (max-width: 400px)
       font-size 40px
-  .loading-screen-dek,.loading-screen-sub
+  .loading-screen-dek
     font-size 24px
     color white
     font-family 'National 2 Narrow Web'
@@ -76,11 +76,23 @@ body
     @media (max-width: 400px)
       font-size 21px
   .loading-screen-sub
+    font-size 24px
+    color white
+    font-family 'National 2 Narrow Web'
+    text-align center
+    width 430px
+    display none
+    font-weight 400
+    margin 0 auto
+    max-width 90%
+    text-shadow -3px -3px 1px rgba(44,12,13, 0.4), -3px -2px 1px rgba(44,12,13, 0.4), -3px -1px 1px rgba(44,12,13, 0.4), -3px 0px 1px rgba(44,12,13, 0.4), -3px 1px 1px rgba(44,12,13, 0.4), -3px 2px 1px rgba(44,12,13, 0.4), -3px 3px 1px rgba(44,12,13, 0.4), -2px -3px 1px rgba(44,12,13, 0.4), -2px -2px 1px rgba(44,12,13, 0.4), -2px -1px 1px rgba(44,12,13, 0.4), -2px 0px 1px rgba(44,12,13, 0.4), -2px 1px 1px rgba(44,12,13, 0.4), -2px 2px 1px rgba(44,12,13, 0.4), -2px 3px 1px rgba(44,12,13, 0.4), -1px -3px 1px rgba(44,12,13, 0.4), -1px -2px 1px rgba(44,12,13, 0.4), -1px -1px 1px rgba(44,12,13, 0.4), -1px 0px 1px rgba(44,12,13, 0.4), -1px 1px 1px rgba(44,12,13, 0.4), -1px 2px 1px rgba(44,12,13, 0.4), -1px 3px 1px rgba(44,12,13, 0.4), 0px -3px 1px rgba(44,12,13, 0.4), 0px -2px 1px rgba(44,12,13, 0.4), 0px -1px 1px rgba(44,12,13, 0.4), 0px 1px 1px rgba(44,12,13, 0.4), 0px 2px 1px rgba(44,12,13, 0.4), 0px 3px 1px rgba(44,12,13, 0.4), 1px -3px 1px rgba(44,12,13, 0.4), 1px -2px 1px rgba(44,12,13, 0.4), 1px -1px 1px rgba(44,12,13, 0.4), 1px 0px 1px rgba(44,12,13, 0.4), 1px 1px 1px rgba(44,12,13, 0.4), 1px 2px 1px rgba(44,12,13, 0.4), 1px 3px 1px rgba(44,12,13, 0.4), 2px -3px 1px rgba(44,12,13, 0.4), 2px -2px 1px rgba(44,12,13, 0.4), 2px -1px 1px rgba(44,12,13, 0.4), 2px 0px 1px rgba(44,12,13, 0.4), 2px 1px 1px rgba(44,12,13, 0.4), 2px 2px 1px rgba(44,12,13, 0.4), 2px 3px 1px rgba(44,12,13, 0.4), 3px -3px 1px rgba(44,12,13, 0.4), 3px -2px 1px rgba(44,12,13, 0.4), 3px -1px 1px rgba(44,12,13, 0.4), 3px 0px 1px rgba(44,12,13, 0.4), 3px 1px 1px rgba(44,12,13, 0.4), 3px 2px 1px rgba(44,12,13, 0.4), 3px 3px 1px rgba(44,12,13, 0.4)
     font-size 15px
     font-weight 600
     margin-top 20px
     text-transform uppercase
     letter-spacing 1px
+    @media (max-width: 420px)
+      font-size 12px
   button
     display block
     margin 0 auto
@@ -106,8 +118,8 @@ body
     color black
     font-weight 600
     margin-top 2rem
-    @media (max-width: 400px)
-      margin-top 50px
+    @media (max-width: 420px)
+      margin-top 30px
       p
         font-size 18px
   .start-button-muted
@@ -193,7 +205,8 @@ body
 .slider-wrapper
   position absolute
   width 20px
-  height 300px
+  height 70%
+  max-height 600px
   transform translate(0,-50%)
   top 50%
   right 4rem
@@ -2068,6 +2081,7 @@ a.header-opener-two {
             p
               font-size 16px
               width 100%
+              line-height 1.1
     .lines-container
       display block
       margin 0 auto
