@@ -69,7 +69,7 @@ function newCode(){
 	var chartData;
 	var nestedDatesTwo;
 	var imageData;
-	var shiftDuration = 3000;
+	var shiftDuration = 100;
 	var tickDelay;
 	var playLength = 0;
 	var startTime = 0;
@@ -110,7 +110,7 @@ function newCode(){
 
 	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
-	var startString = "1964-04-11";
+	var startString = "1958-10-06";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
@@ -1242,6 +1242,8 @@ function newCode(){
 		var extentDates = d3.extent(nestedDates,function(d){
 			return parseDate(d.key);
 		})
+
+		extentDates[0] = parseDate("1958-10-06")
 
 		var yearArray = [];
 		var yearsForPips = ["1960-01","1970-01","1980-01","1990-01","2000-01","2010-01"]
