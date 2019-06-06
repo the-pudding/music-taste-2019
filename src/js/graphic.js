@@ -69,7 +69,7 @@ function newCode(){
 	var chartData;
 	var nestedDatesTwo;
 	var imageData;
-	var shiftDuration = 100;
+	var shiftDuration = 3000;
 	var tickDelay;
 	var playLength = 0;
 	var startTime = 0;
