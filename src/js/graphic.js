@@ -110,7 +110,7 @@ function newCode(){
 
 	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
-	var startString = "1958-10-06";
+	var startString = "1964-04-11";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
