@@ -69,7 +69,7 @@ function newCode(){
 	var chartData;
 	var nestedDatesTwo;
 	var imageData;
-	var shiftDuration = 2500;
+	var shiftDuration = 1150;
 	var tickDelay;
 	var playLength = 0;
 	var startTime = 0;
@@ -110,7 +110,7 @@ function newCode(){
 
 	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
-	var startString = "1997-03-15";
+	var startString = "2010-01-02";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
@@ -1463,6 +1463,8 @@ function newCode(){
 			currentDate = unParse(dates[0]);
 	    dateAhead = unParse(d3.time.day.offset(dates[0], 7));
 			twoDatesAhead = unParse(d3.time.day.offset(dates[0], 14));
+
+			console.log(currentDate);
 
 	    changeYear(currentYear);
 
