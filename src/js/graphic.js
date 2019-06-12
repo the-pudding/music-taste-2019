@@ -69,7 +69,7 @@ function newCode(){
 	var chartData;
 	var nestedDatesTwo;
 	var imageData;
-	var shiftDuration = 1150;
+	var shiftDuration = 2250;
 	var tickDelay;
 	var playLength = 0;
 	var startTime = 0;
@@ -110,7 +110,7 @@ function newCode(){
 
 	var uniqueRowsCsv = "assets/data/unique_rows_2019_1.csv";
 
-	var startString = "2010-01-02";
+	var startString = "1999-12-13";
 	if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	  mobile = true;
 	}
